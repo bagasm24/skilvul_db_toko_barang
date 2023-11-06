@@ -25,3 +25,12 @@ CREATE TABLE pesanan (
     total_harga DECIMAL(10, 2),
     FOREIGN KEY (id_pelanggan) REFERENCES pelanggan(id_pelanggan)
 );
+
+CREATE TABLE detail_pesanan (
+    id_detail INT PRIMARY KEY not null AUTO_INCREMENT,
+    id_pesanan INT,
+    id_produk INT,
+    quantity INT,
+    FOREIGN KEY (id_pesanan) REFERENCES pesanan(id_pesanan),
+    FOREIGN KEY (id_produk) REFERENCES produk(id_produk)
+);
